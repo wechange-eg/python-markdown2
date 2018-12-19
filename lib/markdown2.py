@@ -1925,7 +1925,7 @@ class Markdown(object):
     _code_friendly_strong_re = re.compile(r"\*\*(?=\S)(.+?[*_]*)(?<=\S)\*\*", re.S)
     _code_friendly_em_re = re.compile(r"\*(?=\S)(.+?)(?<=\S)\*", re.S)
     # this will not italicize intra-word asterisks like `Benutzer*innen`
-    _code_friendly_em_stric_re = re.compile(r"(?<=[.,\/#!$%\^&\*;:{}=\-_`~()\s])\*(?=\S)(.+?)(?<=\S)\*(?=[.,\/#!$%\^&\*;:{}=\-_`~()\s])", re.S)
+    _code_friendly_em_stric_re = re.compile(r"(?<!\b)\*(?=\S)(.+?)(?<=\S)\*(?!\b)", re.S)
     
     def _do_italics_and_bold(self, text):
         # <strong> must go first:
